@@ -1,0 +1,39 @@
+.screen.list {
+	.grid {
+		height: 800px;
+		padding: 0 20px; //viewport
+		padding-top: 40px;
+
+		.tile {
+			float: left;
+			width: 380px;
+			height: 380px;
+			padding-left: 40px;
+
+			font-size: 1.6rem;
+			line-height: 2.4;
+			font-weight: bold;
+			box-sizing: border-box;
+
+			&.wide { width: 760px; }
+			&.high { height: 760px; }
+
+			&.offset {
+				&.x1 { margin-left: -380px; }
+				&.x2 { margin-left: -760px; }
+				&.y1 { margin-top: 380px; }
+			}
+
+			.image {
+				height: calc(100% - 40px);
+				@include background-image(cover);
+			}
+
+			label {
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+		}
+	}
+}

@@ -1,0 +1,38 @@
+.screen.detail {
+	.frames {
+		height: 100%;
+
+		.tile {
+			float: left;
+			width: 1880px;
+			height: 100%;
+			margin: 0 20px; //viewport
+			@include background-image(contain);
+
+			overflow: hidden;
+
+			.image {
+				width: 100%;
+				height: 100%;
+				min-width: 100%;
+				min-height: 100%;
+				@include background-image(contain);
+			}
+		}
+	}
+
+	&.zoom {
+		.frames {
+			width: auto !important; //override inline style
+		}
+
+		.tile {
+			padding: 0 20px 100px 0; //viewport
+			background-image: none !important; //override inline style
+
+			&:not(.zoom) {
+				display: none;
+			}
+		}
+	}
+}

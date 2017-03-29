@@ -1,0 +1,79 @@
+/* --- Toolbar --- */
+.toolbar {
+	position: fixed;
+	top: 900px;
+	left: 20px;
+	width: 1880px;
+	height: 80px;
+	padding: 0 16px;
+	box-sizing: border-box;
+
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+
+	background-color: rgba($page-bkg-color, .67);
+	font-size: 2.2rem;
+	font-weight: normal;
+	line-height: 1;
+	transition: opacity $slow;
+
+	a, label {
+		height: 80px;
+		padding: 28px 22px;
+		box-sizing: border-box;
+	}
+
+	.language,
+	.labels {
+		ul {
+			display: flex;
+
+			a, label {
+				opacity: .5;
+
+				&.selected { opacity: 1; }
+			}
+		}
+
+		&.labels.single label:not(.selected) {
+			display: none;
+		}
+	}
+
+	.navigation {
+		ul { display: flex; }
+		a {
+			background: url(/images/icons_nav.svg) no-repeat;
+			color: transparent;
+			overflow: hidden;
+			opacity: .25;
+
+			&:active { opacity: 1; }
+
+			&.back { width: 56px; background-position: 11px 22px; }
+			&.home { width: 70px; background-position: 20px -78px; }
+		}
+	}
+
+
+	&.slideshow {
+		display: none;
+	}
+
+	&.home {
+		.back { display: none; }
+		.labels { display: none; }
+	}
+
+	&.list {
+		.language { display: none; }
+		.labels { display: none; }
+	}
+
+	&.detail {
+		&.hidden { opacity: 0; pointer-events: none; }
+		&.invisible { display: none; }
+		.language { display: none; }
+	}
+}

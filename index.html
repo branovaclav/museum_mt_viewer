@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=1880, height=880, initial-scale=1">
+	<title>Museum Kiosk</title>
+
+	<!-- stylesheets -->
+	<link rel="stylesheet" href="styles/main.css">
+
+	<!-- scripts -->
+	<script src="/scripts/jquery-3.2.0.min.js"></script>
+	<script src="/data/kiosk.js"></script>
+	<script src="/data/data.js"></script>
+	<script src="/scripts/main.js"></script>
+</head>
+<body>
+	<main>
+		<section id="slideshow" class="screen slideshow">
+			<ul id="slides" class="slides">
+			</ul>
+		</section>
+
+		<section id="home" class="screen home">
+			<nav id="menu" class="menu">
+				<ul>
+					<li><a data-tag="plant" data-lat="Plantae" data-slo="Rastliny" data-eng="Plants">Rastliny</a></li>
+					<li><a data-tag="animal" data-lat="Animalium" data-slo="Živočíchy" data-eng="Animals">Živočíchy</a></li>
+					<li><a data-tag="landscape" data-lat="Patriam" data-slo="Krajiny" data-eng="Landscape">Krajiny</a></li>
+				</ul>
+			</nav>
+		</section>
+
+		<section id="list" class="screen list">
+			<ul id="grid" class="grid">
+			</ul>
+		</section>
+
+		<section id="detail" class="screen detail">
+			<ul id="frames" class="frames">
+			</ul>
+		</section>
+
+		<div id="toolbar" class="toolbar">
+			<nav class="navigation">
+				<ul>
+					<li><a id="back_btn" class="back">Back</a></li>
+					<li><a id="home_btn" class="home">Home</a></li>
+				</ul>
+			</nav>
+
+			<nav class="language">
+				<ul id="language">
+					<li><a data-lang="lat">LAT</a></li>
+					<li><a class="selected" data-lang="slo">SLO</a></li>
+					<li><a data-lang="eng">ENG</a></li>
+				</ul>
+			</nav>
+
+			<div class="labels">
+				<ul id="labels">
+					<li><label data-lang="lat"></label></li>
+					<li><label data-lang="slo"></label></li>
+					<li><label data-lang="eng"></label></li>
+				</ul>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

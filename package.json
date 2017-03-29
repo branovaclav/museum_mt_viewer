@@ -1,0 +1,17 @@
+{
+  "name": "museum_mt_viewer",
+  "version": "1.0.0",
+  "description": "Muzeum Andreja Kmeta v Martine - Prehliadac fotografii",
+  "main": "server.js",
+  "scripts": {
+	"dev": "node server.js | node-sass -w styles/ -o styles/"
+  },
+  "author": "Branislav Vaclav",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2"
+  },
+  "devDependencies": {
+    "node-sass": "^4.5.0"
+  }
+}
