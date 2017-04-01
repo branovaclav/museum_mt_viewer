@@ -249,4 +249,5 @@ var Kiosk = {
 /* init */
 $(window).on('load', () => {
 	Object.create(Kiosk).init(data, kiosk);
+	$(document).on('contextmenu', event => event.preventDefault());
 });
