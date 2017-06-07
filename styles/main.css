@@ -149,7 +149,9 @@ label {
   display: none; }
 
 .screen.slideshow {
-  margin: 0 20px; }
+  margin: 0 20px;
+  margin: -9.5px 0;
+  height: calc(100% + 19px); }
 
 .screen.slideshow .slides {
   height: 100%; }

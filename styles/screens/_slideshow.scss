@@ -1,6 +1,9 @@
 .screen.slideshow {
 	margin: 0 20px; //viewport
 
+	margin: -9.5px 0; //overscan adjustment
+	height: calc(100% + 19px);
+
 	.slides {
 		height: 100%;
 
