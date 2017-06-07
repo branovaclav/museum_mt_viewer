@@ -130,6 +130,9 @@ var Kiosk = {
 		$(document).scrollLeft(tiles.filter(function (i, tile) {
 			return $(tile).data().index == this.index;
 		}.bind(this)).index() * config.screenWidth);
+
+		$('#prev_btn').parent().toggleClass('disabled', this.index <= 0);
+		$('#next_btn').parent().toggleClass('disabled', this.index >= this.images.length - 1);
 	},
 
 	showList: function (event) {
@@ -191,11 +194,22 @@ var Kiosk = {
 
 			var offset = $(document).scrollLeft() - start.scroll;
 			var direction = Math.abs(offset) > config.screenWidth / 6 ? (offset > 0 ? 1 : -1) : 0;
-			$('body').animate({ scrollLeft: start.scroll + direction * config.screenWidth }, 1.4 * 1000, function () {
+			$('body').animate({ scrollLeft: start.scroll + direction * config.screenWidth }, .42 * 1000, function () {
 				if (direction)
 					this.generateFrames(null, direction);
 				this.screens.detail.on('touchstart', this.flick.bind(this));
 			}.bind(this));
+		}.bind(this));
+	},
+
+	scroll: function (direction) {
+		if (this.scrolling)
+			return;
+		this.scrolling = true;
+		var position = $(document).scrollLeft() + (direction * config.screenWidth);
+		$('body').animate({ scrollLeft: position },.42 * 1000, function () {
+			this.generateFrames(null, direction);
+			this.scrolling = false;
 		}.bind(this));
 	},
 
@@ -232,6 +246,9 @@ var Kiosk = {
 		$('#language a').on('click', this.language.bind(this));
 		$('#home_btn').on('click', this.slideshow.bind(this));
 		$('#back_btn').on('click', this.back.bind(this));
+
+		$('#prev_btn').on('click', function () { this.scroll(-1) }.bind(this));
+		$('#next_btn').on('click', function () { this.scroll(1) }.bind(this));
 
 		$(document).on('touchmove', '#detail:not(.zoom)', function (event) { event.preventDefault(); }); //disable touch scrolling
 		this.screens.detail.on('touchstart', this.flick.bind(this));
